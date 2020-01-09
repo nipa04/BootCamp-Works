@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ article.title }}</title>
+
+    {% if messages %}
+      {% for message in messages %}
+        Errors: {{ message }}
+      {% endfor %}
+    {% endif %}
+    <title>Blog</title>
+
+  </head>
+  <body>
+
+    {% if user.id is article.user.pk %}
+      <h3><a href="{% url 'edit_article' id=article.pk %}">Edit Article</a></h3>
+    {% endif %}
+
+    <!-- <h5>Added by {{ article.user.username }}</h5> -->
+
+    <div class="article-body">
+    <h2> {{ article.title }} </h2>
+    <h3> author:{{ article.author}} </h3>
+    <h4> {{ article.published_date }}</h4>
+    <p> {{ article.body }} </p>
+
+    <h4>Comments {{ article.comments.count }}:</h4>
+    <ul>
+    {% for comment in article.comments.all %}
+      <li>{{ comment.message }}</li>
+    {% endfor %}
+    </ul>
+
+    <form action="{% url 'create_comment' %}" method="post">
+      {% csrf_token %}
+      <!-- <input type="hidden" name="article" value="{{ article.pk }}">
+
+      <label for="comment-name">
+        <span>Name:</span>
+        <input class="name-form" type="text" id="comment-name" name="comment-name">
+      </label>
+      <br>
+      <label for="comment-message">
+        <span>Comment:</span>
+        <textarea id="comment-message" name="comment-message"></textarea>
+      </label>
+      <br> -->
+      {{ form.as_p }}
+      <input class="submit-form" type="submit" name="comment-submit">
+    </form>
+    </div>
+  </body>
+{% endblock %}
+
+</html>

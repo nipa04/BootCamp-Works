@@ -1,0 +1,39 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <title>My Blog</title>
+    {% load static %}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+  </head>
+
+  <body>
+
+    <header class = "site-header">
+      <h1>Welcome to my blog!</h1>
+    </header>
+      <nav>
+        {% if request.user.is_authenticated %}
+        <h3><p><a href="{% url 'logout' %}">Log Out</a></p></h3>
+
+        {% else %}
+        <p><a href="{% url 'login' %}">Log In</a></p>
+
+        {% endif %}
+      </nav>
+
+
+    {% block content %}
+    {% endblock %}
+
+    <footer class = "site-footer"> Copyright Farjana Nipa </footer>
+
+  </body>
+
+</html>

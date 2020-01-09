@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+    <meta charset="utf-8">
+    <title>Blog</title>
+
+  </head>
+  <body>
+
+    <h2 class="home-heading"> Articles <h2>
+    {% for article in articles %}
+    <ul class="home-list">
+      <li>
+      <a class="home-article" href="{% url 'article_details' id=article.pk %}">
+        <h6 class="home-article-date"> {{ article.published_date }} </h6>
+        <h4 class="home-article-title"> {{ article }} </h4>
+        <!-- <p> {{ article.body }} </p> -->
+      </a>
+      </li>
+    </ul>
+    {% endfor %}
+
+    <h3><a href="/new_article">Create New Article</a></h3>
+  </body>
+</html>
+{% endblock %}

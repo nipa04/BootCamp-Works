@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>New Article</title>
+    
+    {% if messages %}
+      {% for message in messages %}
+        Errors: {{ message }}
+      {% endfor %}
+    {% endif %}
+  </head>
+  <body>
+    <h2>New Article</h2>
+    <form action="{% url 'create_article' %}" method="post">
+      {% csrf_token %}
+
+      {{ form.as_p }}
+      <input class="submit-form" type="submit" name="article-submit">
+    </form>
+  </body>
+{% endblock %}
+
+</html>
