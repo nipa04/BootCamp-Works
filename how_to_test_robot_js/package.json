@@ -1,0 +1,21 @@
+{
+  "name": "how_to_test",
+  "version": "1.0.0",
+  "description": "[See assignment in Alexa](https://alexa.bitmaker.co/wdi/may-2017/assignments/2591/latest)",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bitmakerlabs/how_to_test_robot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bitmakerlabs/how_to_test_robot/issues"
+  },
+  "homepage": "https://github.com/bitmakerlabs/how_to_test_robot#readme",
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
+}

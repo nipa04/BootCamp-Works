@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+
+  <body>
+    <h1>Crowdfunder</h1>
+    <ul>
+      <li><a href="{% url 'home_page' %}">Home</a></li>
+      {% if request.user.is_authenticated %}
+      <li>Logged in as {{ request.user.username }}</li>
+      <!-- display link to log out -->
+      <li><a class="login" href="{% url 'logout' %}">Log out</a></li>
+      <li><a href="{% url 'profile_show' user.id %}">Profile Page</a></li>
+      {% else %}
+      <!-- display link to login page -->
+      <li><a href="{% url 'login' %}">Log in</a></li>
+      <li><a href="{% url 'signup' %}">Signup</a></li>
+      {% endif %}
+    </ul>
+
+
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>
