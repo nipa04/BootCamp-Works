@@ -1,0 +1,23 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Farjana's Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Crete+Round|Mukta|Laila" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  </head>
+  <body>
+    <header>
+      <h1 class='main-title'>Welcome to Farjana's Blog!</h1>
+    </header>
+    <nav>
+
+    </nav>
+    {% block content %}
+    {% endblock %}
+  </body>
+  <footer class='my-footer'>© Farjana Nipa 2019</footer>
+</html>

@@ -1,0 +1,86 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: inherit;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 100%; /* this will be 16px on most browsers */
+  line-height: 1.5; /* this is a multiple of the font size (1.5 * 16px = 24px) */
+}
+
+body {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+figure {
+  margin: 0;
+}
+
+.film {
+  width: 50%;
+  margin: 40px auto;
+}
+.fa fa-lg fa-heart {
+  background-color: red;
+
+}
+.fa fa-lg fa-bookmark{
+  background-color: red;
+
+}
+.fa fa-lg fa-star{
+  background-color: red;
+}
+.fa fa-2x fa-clock-o{
+  background-color: red;
+}
+/* *,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: inherit;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 100%; /* this will be 16px on most browsers */
+  /* line-height: 1.5; /* this is a multiple of the font size (1.5 * 16px = 24px) */ */
+}
+
+/* body {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+} */
+
+/* figure {
+  margin: 0;
+}
+
+.film {
+  width: 50%;
+  margin: 40px auto;
+}
+.fa fa-lg fa-heart { */
+  /* background-color: red;
+
+}
+.fa fa-lg fa-bookmark{
+  background-color: red;
+
+}
+.fa fa-lg fa-star{
+  background-color: red; */
+}
+/* .fa fa-2x fa-clock-o{
+  background-color: red;
+} */

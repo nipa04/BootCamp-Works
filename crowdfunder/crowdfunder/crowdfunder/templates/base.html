@@ -1,0 +1,36 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>CrowdFuner</title>
+          {% load static %}
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    </head>
+    <body>
+        <header>
+          <a href="{% url 'project_view' %}"><h1>CrowdFunder</h1></a>
+            <form class="search" action="{% url 'catagorie_search' %}" method="get">
+                <label for="project-search">
+                    <span>Search:</span>
+                    <input type="search" id="project-search" name="query" value="{{ query }}">
+                </label>
+            </form>
+        </header>
+        <div class="login_out">
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'project_create'%}">Create New Project</a>
+                <a href="{% url 'profile_show' id=request.user.pk %}">{{ request.user.username }}</a>
+                <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'signup' %}">Signup</a>       
+            {% endif %}
+            <a href="{% url 'category_view' %}">Categories</a>
+        </div>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>
