@@ -1,0 +1,76 @@
+1.Find the author with the name 'Kara Melton' and then select all the articles she has written.
+
+select * from articles where author_id = (select id from authors where name = 'Kara Melton');
+
+2.Find Ontario in the provinces table and then find all the cities in that province.
+
+one_to_many_assignment=# select * from cities where province_id = (select id from provinces where name = 'Ontario');
+ id |  name   | year_founded | province_id
+----+---------+--------------+-------------
+  8 | Toronto |         1793 |          14
+ 11 | Ottawa  |         1826 |          14
+(2 rows)
+
+3.Who wrote the article called 'Coding Bootcamps and Emotional Labor'?
+
+one_to_many_assignment=# select name from authors where id = (select author_id from articles where title = 'Coding Bootcamps and Emotional Labor');
+       name
+-------------------
+ Tilde Ann Thurium
+(1 row)
+
+4.Write a series of SQL queries to find out how many provinces are in Canada.
+
+one_to_many_assignment=# select count(name) from provinces where country_id = (select id from countries where name = 'Canada');
+ count
+-------
+    14
+(1 row)
+
+5.How many people live at 4740 McDermott Street?
+
+one_to_many_assignment=# select count(name) from persons where residence_id = (select id from residences where address = '4740 McDermott Street');
+ count
+-------
+     2
+(1 row)
+
+6.What city is 4740 McDermott Street in?
+
+one_to_many_assignment=# select name from cities where id = (select city_id from residences where address = '4740 McDermott Street');
+  name
+--------
+ Ottawa
+(1 row)
+
+7.What province is 4740 McDermott Street in?
+
+one_to_many_assignment=# select name from provinces where id = (select province_id from cities where id = (select city_id from residences where address = '4740 McDermott Street'));
+  name
+---------
+ Ontario
+(1 row)
+
+8.What country is 4740 McDermott Street in?
+
+one_to_many_assignment=# select name from countries where id = (select country_id from provinces where id = (select province_id from cities where id = (select city_id from residences where address = '4740 McDermott Street')));
+  name
+--------
+ Canada
+(1 row)
+
+9.Find the person named 'Destini Davis' and then use a series of SQL queries to find what country they live in.
+
+one_to_many_assignment=# select name from countries where id = (select country_id from provinces where id = (select province_id from cities where id = (select city_id from residences where id = (select residence_id from persons where name = 'Destini Davis'))));
+  name
+--------
+ Canada
+(1 row)
+
+10.How many articles has Aditya Mukerjee written?
+
+one_to_many_assignment=# select count(*) from articles where author_id = (select id from authors where name = 'Aditya Mukerjee');
+ count
+-------
+     1
+(1 row)
