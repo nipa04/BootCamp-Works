@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+
+  <body class="search-results">
+
+    <ul class = "search-list">
+
+      <h2>Search Results: <span class="search-count">{{ pictures.count }}</span></h2>
+      
+      {% for picture in pictures %}
+      <li class="results-list">
+      <img class="picture-image" src="{{ picture.url }}" alt="{{ picture.title }}" />
+
+      <p class="picture-caption"><span class="title">{{ picture.title }}</span> by {{ picture.artist }}</p>
+      </li>
+    </ul>
+    {% endfor %}
+  </body>
+
+</html>
+{% endblock %}

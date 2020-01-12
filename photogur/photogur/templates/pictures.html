@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Photogur</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="picture-list">
+    {% for picture in pictures %}
+     <a class="each-image" href="{% url 'picture_details' id=picture.pk %}">
+       <ul>
+         <li class="each-picture">
+           <img src ="{{ picture.url }}" >
+           <p class="caption"> {{ picture.title }}:  by {{ picture.artist }}</p>
+         </li>
+       </ul>
+     </a>
+   {% endfor %}
+   </div>
+ </body>
+</html>
+ {% endblock %}
